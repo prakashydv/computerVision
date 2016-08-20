@@ -1,7 +1,7 @@
 %% Zoom&Capture
-function zoomAndCapture(numOfPictures,imfolder,COMx)
+function zoomAndCapture(numOfPictures,imfolder,COMx,videoPort,ext)
     zoomLevels=['0000';'166F';'1FF0';'257D';'2940';'2C02';'2E2B';'2FEE';'316A';'32B2';'33D4';'34D9';'35C8';'36A4';'3773';'3836';'38F0';'39A0';'3A49';'3AE8';'3B7F';'3C0C';'3C8E';'3D06';'3D73';'3DD4';'3E2C';'3E7C';'3EC2';'3F00';'3F38';'3F68';'3F94';'3FBD';'3FDF';'4000'];
-    vid = videoinput('winvideo',2);
+    vid = videoinput('winvideo',videoPort);
     vid.FramesPerTrigger = 1;
     vid.TriggerRepeat=Inf;
     try
@@ -38,7 +38,7 @@ function zoomAndCapture(numOfPictures,imfolder,COMx)
                 display('Could Not Capture Image !');
                 throw(err)
             end
-            fname = sprintf('%s/%06d.jpg',imfolder,count);
+            fname = sprintf('%s/%06d.%s',imfolder,count,ext);
             try 
                 imwrite(im,fname);
             catch err
@@ -54,5 +54,6 @@ function zoomAndCapture(numOfPictures,imfolder,COMx)
     end
     stop(vid);
     delete(vid);
+
 end
    

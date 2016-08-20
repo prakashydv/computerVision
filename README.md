@@ -1,9 +1,4 @@
-computerVision
+Computer Vision
 ==============
-Object Detection / Tracking etc ...
-
-
-Dependencies:
-=> OpenCV
-=> numpy
-... thats pretty much it.
+Code in python and matlab Object Detection / Tracking / Calibration / GIS support etc ...
+python scripts requires numpy + OpenCV.
